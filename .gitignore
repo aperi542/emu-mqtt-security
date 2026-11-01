@@ -1,0 +1,5 @@
+# Never upload the actual MQTT password file
+config/passwords
+
+# Ignore macOS metadata files
+.DS_Store

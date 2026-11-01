@@ -1,0 +1,9 @@
+user EMU_01
+topic readwrite emu/EMU_01/features
+
+user EMU_02
+topic readwrite emu/EMU_02/features
+
+user monitor
+topic read emu/+/features
+
