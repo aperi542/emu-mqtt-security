@@ -200,25 +200,25 @@ Start an authorized monitor subscriber in a separate Terminal window:
 mosquitto_sub -h 127.0.0.1 -p 18883 -u monitor -P "$MONITOR_PASS" -t "emu/+/features" -v
 ```
 
-**T1 — Authorized publishing**
+**T1: Authorized publishing**
 
 ```bash
 mosquitto_pub -h 127.0.0.1 -p 18883 -u EMU_01 -P "$EMU01_PASS" -t "emu/EMU_01/features" -m "voltage=120" -q 1 -d
 ```
 
-**T2 — Publishing without credentials**
+**T2: Publishing without credentials**
 
 ```bash
 mosquitto_pub -h 127.0.0.1 -p 18883 -t "emu/EMU_01/features" -m "voltage=999" -q 1 -d
 ```
 
-**T3 — Publishing to another EMU's topic**
+**T3: Publishing to another EMU's topic**
 
 ```bash
 mosquitto_pub -h 127.0.0.1 -p 18883 -u EMU_01 -P "$EMU01_PASS" -t "emu/EMU_02/features" -m "voltage=999" -q 1 -d
 ```
 
-**T4 — Subscribing to another EMU's topic**
+**T4: Subscribing to another EMU's topic**
 
 Run this command in a separate Terminal window:
 
@@ -234,7 +234,7 @@ mosquitto_pub -h 127.0.0.1 -p 18883 -u EMU_02 -P "$EMU02_PASS" -t "emu/EMU_02/fe
 
 The authorized monitor should receive the message, but EMU_01 should not.
 
-**T5 — Monitor read-only access**
+**T5: Monitor read-only access**
 
 Use the monitor subscriber shown above to receive messages from both EMUs. Publish an authorized message from each device using its own credentials.
 
