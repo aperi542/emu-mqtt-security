@@ -257,3 +257,35 @@ Screenshots of the Terminal output and broker logs are saved in the `results` fo
 - `T5-monitor-read-write-test.png`
 
 All five tests produced the expected results. Authentication prevented clients without valid credentials from connecting, and the ACL rules restricted access to the appropriate topics.
+
+
+
+## Task 2: Adding TLS Encryption
+
+For Task 2, I added TLS encryption to the MQTT system I created in Task 1. The goal was to make communication between the EMUs and the broker more secure.
+
+### TLS Setup
+
+I used OpenSSL to create a Certificate Authority (CA) certificate and a server certificate. I then created a new Mosquitto configuration file called `config/tls.conf`.
+
+I configured the broker to use port 8883 for TLS communication instead of port 18883. I also kept the usernames, passwords, and access control rules from Task 1.
+
+### Security Testing
+
+I completed five tests to check whether TLS and the existing security rules worked correctly.
+
+| Test | Description | Result |
+|---|---|---|
+| T1 | EMU_01 publishes a message using TLS | Passed |
+| T2 | Client connects using an untrusted CA | Connection rejected |
+| T3 | Client connects with an incorrect password | Connection rejected |
+| T4 | EMU_01 tries to publish to EMU_02's topic | Publishing blocked |
+| T5 | Monitor receives measurements from both EMUs | Passed |
+
+I saved screenshots of the tests in the `results/tls` folder.
+
+### What I Learned
+
+I learned that TLS encrypts communication between MQTT clients and the broker. Certificates help clients verify that they are connecting to the correct broker.
+
+I also learned that TLS alone does not control which topics a device can access. Authentication and access control rules are still needed to prevent unauthorized communication.

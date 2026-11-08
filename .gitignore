@@ -3,3 +3,9 @@ config/passwords
 
 # Ignore macOS metadata files
 .DS_Store
+
+config/passwords
+.DS_Store
+certs/*.key
+certs/*.csr
+certs/*.srl
